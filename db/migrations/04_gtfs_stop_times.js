@@ -6,7 +6,7 @@ exports.up = knex => knex.schema.createTable('gtfs_stop_times', (table) => {
   table.integer('stop_sequence').notNullable();
   table.string('stop_headsign');
   table.integer('pickup_type').defaultTo(0); // {0, 1, 2, 3}
-  table.integer('dropoff_type').defaultTo(0); // {0, 1, 2, 3}
+  table.integer('drop_off_type').defaultTo(0); // {0, 1, 2, 3}
   table.decimal('shape_dist_traveled');
   table.integer('timepoint'); // {null, 0, 1}
 });

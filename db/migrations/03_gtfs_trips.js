@@ -1,4 +1,4 @@
-exports.up = knex => knex.schema.createTable('gtf_trips', (table) => {
+exports.up = knex => knex.schema.createTable('gtfs_trips', (table) => {
   table.string('route_id').notNullable(); // dataset unique
   table.string('service_id').notNullable(); // references calendar or calendar_dates
   table.string('trip_id').notNullable(); // dataset unique
@@ -11,4 +11,4 @@ exports.up = knex => knex.schema.createTable('gtf_trips', (table) => {
   table.integer('bikes_allowed', 1); // {0, 1, 2}
 });
 
-exports.down = knex => knex.schema.dropTable('gtf_trips');
+exports.down = knex => knex.schema.dropTable('gtfs_trips');
