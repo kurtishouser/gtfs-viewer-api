@@ -9,6 +9,7 @@ const index = require('./src/routes/index');
 const agencies = require('./src/routes/agencies');
 const routes = require('./src/routes/routes');
 const trips = require('./src/routes/trips');
+const shapes = require('./src/routes/shapes');
 
 app.use(cors());
 
@@ -16,6 +17,7 @@ app.use('/', index);
 app.use('/agencies', agencies);
 app.use('/routes', routes);
 app.use('/trips', trips);
+app.use('/shapes', shapes);
 
 app.use((req, res) => {
   res.sendStatus(404);
