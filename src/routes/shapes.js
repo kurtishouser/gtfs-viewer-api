@@ -36,7 +36,6 @@ router.get('/:id', (req, res) => {
 router.get('/route/:id', (req, res) => {
   getShapeByRouteId(req.params.id)
     .then((shape) => {
-      console.log('shape', shape);
       res.send({
         routeId: req.params.id,
         shapeId: shape[0].shapeId,
