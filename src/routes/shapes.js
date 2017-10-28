@@ -1,10 +1,18 @@
 const express = require('express');
 const fs = require('fs');
 
+const getShapes = require('../services/shapes/getShapes');
 const getShapeById = require('../services/shapes/getShapeById');
 const getShapeByRouteId = require('../services/shapes/getShapeByRouteId');
 
 const router = express.Router();
+
+router.get('/', (req, res) => {
+  getShapes()
+    .then((shapes) => {
+      res.json(shapes);
+    });
+});
 
 router.get('/:id', (req, res) => {
   getShapeById(req.params.id)
