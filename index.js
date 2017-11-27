@@ -9,6 +9,7 @@ const index = require('./src/routes/index');
 const agencies = require('./src/routes/agencies');
 const routes = require('./src/routes/routes');
 const directions = require('./src/routes/directions');
+const services = require('./src/routes/services');
 const shapes = require('./src/routes/shapes');
 const trips = require('./src/routes/trips');
 
@@ -18,6 +19,7 @@ app.use('/', index);
 app.use('/agencies', agencies);
 app.use('/routes', routes);
 app.use('/directions', directions);
+app.use('/services', services);
 app.use('/shapes', shapes);
 app.use('/trips', trips);
 
