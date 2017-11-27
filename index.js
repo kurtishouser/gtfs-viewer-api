@@ -8,16 +8,18 @@ app.disable('x-powered-by');
 const index = require('./src/routes/index');
 const agencies = require('./src/routes/agencies');
 const routes = require('./src/routes/routes');
-const trips = require('./src/routes/trips');
+const directions = require('./src/routes/directions');
 const shapes = require('./src/routes/shapes');
+const trips = require('./src/routes/trips');
 
 app.use(cors());
 
 app.use('/', index);
 app.use('/agencies', agencies);
 app.use('/routes', routes);
-app.use('/trips', trips);
+app.use('/directions', directions);
 app.use('/shapes', shapes);
+app.use('/trips', trips);
 
 app.use((req, res) => {
   res.sendStatus(404);
