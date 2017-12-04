@@ -38,3 +38,8 @@ codeship.aes
 # Google Credentials
 google-credentials/service-account.json
 google-credentials/notes.txt
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
