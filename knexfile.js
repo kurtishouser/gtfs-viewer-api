@@ -1,9 +1,7 @@
-
-
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/transit_dev',
+    connection: `postgres://localhost/${process.env.DEV_DB}`,
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
@@ -13,7 +11,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/transit_test',
+    connection: `postgres://localhost/${process.env.TEST_DB}`,
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
