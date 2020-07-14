@@ -3,7 +3,7 @@ exports.up = knex => knex.schema.createTable('gtfs_routes', (table) => {
   table.string('agency_id'); // references agencies.agency_id
   table.string('route_short_name').notNullable();
   table.string('route_long_name').notNullable();
-  table.string('route_desc');
+  table.text('route_desc');
   // include Extended GTFS Route Types
   // https://developers.google.com/transit/gtfs/reference/extended-route-types
   table.integer('route_type', 4).notNullable();
