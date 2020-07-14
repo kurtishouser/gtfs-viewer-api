@@ -8,8 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   getRoutes()
     .then((routes) => {
-      routes.sort(byKey('routeShortName'));
-      res.json(routes);
+      res.json(routes.length > 0 ? routes.sort(byKey('routeShortName')) : routes);
     });
 });
 
