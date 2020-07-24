@@ -16,27 +16,23 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   getShapeById(req.params.id)
-    .then((shape) => {
-      const geoJson = {
-        type: 'Feature',
-        properties: {
-          shapeId: req.params.id,
-          distance: shape[shape.length - 1].shapeDistTraveled,
-        },
-        geometry: {
-          type: 'LineString',
-          coordinates: shape.map(point =>
-            [parseFloat(point.shapePtLon), parseFloat(point.shapePtLat)]),
-        },
-      };
-      res.json(geoJson);
+    .then(shape => {
+      const result = shape.length > 0
+        ? {
+          type: 'Feature',
+          properties: {
+            shapeId: req.params.id,
+            distance: shape[shape.length - 1].shapeDistTraveled,
+          },
+          geometry: {
+            type: 'LineString',
+            coordinates: shape.map(point =>
+              [parseFloat(point.shapePtLon), parseFloat(point.shapePtLat)]),
+          },
+        }
+        : shape;
 
-      // res.json({
-      //   shapeId: req.params.id,
-      //   distance: shape[shape.length - 1].shapeDistTraveled,
-      //   coordinates: shape.map(point =>
-      //     [parseFloat(point.shapePtLon), parseFloat(point.shapePtLat)]),
-      // });
+      return res.json(result);
     })
     .catch(err => err);
 });
