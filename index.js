@@ -13,6 +13,7 @@ const types = require('./src/routes/types');
 const directions = require('./src/routes/directions');
 const services = require('./src/routes/services');
 const shapes = require('./src/routes/shapes');
+const allShapes = require('./src/routes/allShapes');
 
 app.use(cors());
 
@@ -23,6 +24,7 @@ app.use('/types', types);
 app.use('/directions', directions);
 app.use('/services', services);
 app.use('/shapes', shapes);
+app.use('/allshapes', allShapes);
 
 app.use((req, res) => {
   res.sendStatus(404);
